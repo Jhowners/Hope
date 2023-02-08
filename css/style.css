@@ -16,7 +16,7 @@
 }
 
 .fontStock {
-    color: #6f6f6f;
+    color: #E6DADA;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 25px;
@@ -47,8 +47,8 @@ h1 {
 #idLogin {
     background-color: #1b1b1b;
     text-align: center;
-    color: azure;
-    margin-top: 0px;
+    color: #E6DADA;
+    margin-top: 23px;
     height: 35px;
     width: 100px;
     border-radius: 40px;
@@ -63,7 +63,6 @@ h1 {
 
 #idCreateAcc {
     margin-top: 50px;
-
     margin-right: 50px;
     text-decoration: none;
 }
@@ -71,9 +70,14 @@ h1 {
     text-decoration: none;
 }
 #idWriteLogin {
+    color: #E6DADA;
     margin-top: 0px;
     height: 40px;
     
+}
+
+#idError {
+    margin-top: 0px;
 }
 
 #idLogin:hover {
