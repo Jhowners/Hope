@@ -1,0 +1,83 @@
+.centralizaDiv {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.idUserPWD {
+    border-color: rgb(0, 119, 255);
+    background-color: #1b1b1b;
+    text-align: center;
+    margin-bottom: 15px;
+    height: 30px;
+    width: 200px;
+    border-radius: 40px;
+}
+
+.fontStock {
+    color: #6f6f6f;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 25px;
+}
+
+body {
+   background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+#idGreybox {
+    background-color: #1b1b1b;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10%;
+}
+
+h1 {
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 55px;
+    font-weight: 100;
+}
+
+#idLogin {
+    background-color: #1b1b1b;
+    text-align: center;
+    color: azure;
+    margin-top: 0px;
+    height: 35px;
+    width: 100px;
+    border-radius: 40px;
+    border-color: rgb(0, 119, 255);
+    border-width: 2px;
+    cursor: pointer;
+}
+
+#idCreateAcc {
+    margin-top: 50px;
+    text-decoration: none;
+}
+#idForgotPwd {
+    text-decoration: none;
+}
+/* #a {
+    margin-top: 0px;
+    height: 40px;
+    
+} */
+
+#idLogin:hover {
+    border-color: rgb(0, 255, 0) !important;
+}
+
+.idUserPWD:hover, .idUserPWD:focus {
+    border-color: blue !important;
+}
+
+#idCreateAcc:hover, #idForgotPwd:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
