@@ -11,17 +11,17 @@
 </head>
 <body>
     
-    <form>
+    <form id="form">
         <div id="idGreybox" class="centralizaDiv" >
             <div>
                 <h1 id="idWriteLogin">Login</h1>
                 <h3 class="fontStock">Please enter your credentials</h3>
             </div>
             <div>
-                <input  id="idUsername" class="idUserPWD" type="text" placeholder="Username">
+                <input id="idUsername" class="idUserPWD" type="text" placeholder="Username">
             </div>
             <div>
-                <input  id="idPassword" class="idUserPWD" type="password" placeholder="Password">
+                <input id="idPassword" class="idUserPWD" type="password" placeholder="Password">
             </div>
             <div>
                 <h3 class="fontStock" id="idError"></h3>
@@ -31,7 +31,7 @@
                 <a href="/html/forgotPassword.html" id="idForgotPwd" class="fontStock">Forgot password?</a>
             </div>
             <div>
-                <button id="idLogin" type="submit">Login</button>
+                <input type="button" id="idLogin" type="button" onclick="login()" value="Login"></button>
             </div>
         </div>
     </form>
