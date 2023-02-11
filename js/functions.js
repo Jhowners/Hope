@@ -1,6 +1,4 @@
 function validaCampos(person){
-    // debugger
-    console.log(person.username, person.password);
     if(!person.username) {
         return document.getElementById('idError').innerHTML = "Invalid Username"
     }
@@ -11,7 +9,6 @@ function validaCampos(person){
 }
 
 function login(){
-    debugger
     let person = {
         username: document.getElementById('idUsername').value,
         password: document.getElementById('idPassword').value
@@ -21,6 +18,3 @@ function login(){
     document.getElementById('form').submit();
     }
 }
-// button.addEventListener("click", function(event){
-//     validaCampos();
-// })
