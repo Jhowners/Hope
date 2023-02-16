@@ -8,16 +8,29 @@ const mysql = require('mysql')
 app.use(morgan('combined'))
 
 app.get('/users/:id', (req, res) => {
+    const userId = req.params.id
+    const queryString = "SELECT * FROM users WHERE iduser = ?" 
+
     console.log("Fethcing user with id: " + req.params.id)
 
     const connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        database: 'Hehe'
+        database: 'Hope'
     })
-    connection.query("SELECT * FROM users", (err, rows, fields) =>{
+    
+    connection.query(queryString, [userId], (err, rows, fields) =>{
+        if (err) {
+            console.log("Failed to query for users: " + err)
+            res.sendStatus(500)
+            res.end()
+            return
+        }
         console.log("i think we fetched users successfully")
-        res.json(rows)
+        const users = rows.map((row) => {
+            return {firstName: row.first_name, lastName: row.last_name}
+        })
+        res.json(users)
     })
     //res.end()
 })
