@@ -1,11 +1,26 @@
+const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
 
 
+app.use(bodyParser.urlencoded({extended: false}))
 
-app.use(morgan('combined'))
+app.use(express.static('./public'))
+
+app.use(morgan('short'))
+
+app.post('/user_create', (req, res) => {
+    debugger
+    console.log('Trying to create a new user')
+    console.log("First name: " + req.body.create_username)
+    console.log("PWD: " + req.body.create_password)
+    console.log("Email: " + req.body.create_email)
+    console.log("Phone: " + req.body.create_phoneNumber)
+    
+    res.end()
+})
 
 app.get('/users/:id', (req, res) => {
     const userId = req.params.id
@@ -47,6 +62,6 @@ app.get("/users",(req, res) => {
 })
 
 //localhost:3003
-app.listen(3003, () => {
+app.listen(8080, () => {
     console.log('Server running...')
 })
