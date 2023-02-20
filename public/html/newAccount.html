@@ -10,30 +10,32 @@
     <title>New Account</title>
 </head>
 <body>
-    <form>
+    <form action="/user_create" method="post">
+
         <div id="idGreybox" class="centralizaDiv">
             <div>
                 <h1 class="fontStock">Create an account</h1>
                 <h2 class="fontLowercase">Please fill up the camps below</h2>
             </div>
             <div>
-                <input id="idUsername" type="text" placeholder="Username">
+                <input id="idUsername" type="text" placeholder="Username" name="create_username"/>
             </div>
             <div>
-                <input id="idPassword" type="password" placeholder="Password">
+                <input id="idPassword" type="password" placeholder="Password" name="create_password">
             </div>
             <div>
-                <input id="idEmail" type="email" placeholder="Email">
+                <input id="idEmail" type="email" placeholder="Email" name="create_email">
             </div>
             <div>
-                <input id="idPhone" type="number" placeholder="Phone">
+                <input id="idPhone" type="number" placeholder="Phone" name="create_phoneNumber">
             </div>
-            <div >
-                <button onclick="location.href='/index.html'" type="button" id="btnStyle">Register</button>
+            <div>
+                <button  id="btnStyle" type="submit">Register</button>
+            </form>
                 <button onclick="location.href='/index.html'" type="button" id="btnStyle">Back</button>
             </div>
         </div>
-    </form>
+
     
 </body>
 </html>
