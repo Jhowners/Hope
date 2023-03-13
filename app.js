@@ -9,15 +9,36 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(express.static('./public'))
 
-app.use(morgan('short'))
+app.use(morgan('combined'))
 
 app.post('/user_create', (req, res) => {
-    debugger
-    console.log('Trying to create a new user')
-    console.log("First name: " + req.body.create_username)
-    console.log("PWD: " + req.body.create_password)
-    console.log("Email: " + req.body.create_email)
-    console.log("Phone: " + req.body.create_phoneNumber)
+    // console.log('Trying to create a new user')
+    // console.log("First name: " + users.firstName)
+    // console.log("PWD: " + users.password)
+    // console.log("Email: " + users.email)
+    // console.log("Phone: " + users.phoneNumber)
+    const users = {
+        firstName: req.body.create_username,
+        password: req.body.create_password, 
+        email: req.body.create_email, 
+        phoneNumber: req.body.create_phoneNumber
+    } 
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        database: 'hope'
+    })
+
+    const queryAddUser = 'INSERT INTO users (first_name, PASSWORD, Email, phoneNumber) VALUES (?, ?, ?, ?)'
+
+    connection.connect(function(err) {
+        if (err) throw err;
+        console.log('Connected sucessfuly!');
+        connection.query(queryAddUser, [users.firstName, users.password, users.email, users.phoneNumber], function (err, result) {
+            if (err) throw err;
+            console.log('Record inserted.')
+        })
+    })
     
     res.end()
 })
@@ -31,7 +52,7 @@ app.get('/users/:id', (req, res) => {
     const connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        database: 'Hope'
+        database: 'hope'
     })
     
     connection.query(queryString, [userId], (err, rows, fields) =>{
@@ -43,25 +64,25 @@ app.get('/users/:id', (req, res) => {
         }
         console.log("i think we fetched users successfully")
         const users = rows.map((row) => {
-            return {firstName: row.first_name, lastName: row.last_name}
+            return {firstName: row.first_name, email: row.Email, phone: row.phoneNumber}
         })
         res.json(users)
     })
     //res.end()
 })
 
-app.get("/", (req, res) => {
-    console.log("Responding to root route")
-    res.send("Hello from roooooooot")
-})
+// app.get("/", (req, res) => {
+//     console.log("Responding to root route")
+//     res.send("Hello from roooooooot")
+// })
 
-app.get("/users",(req, res) => {
-    var user1 = {firstName: "Anthony", lastName: "Don"};
-    var user2 = {firstName: "Mario", lastName: "Kim"}
-    res.json([user1, user2])
-})
+// app.get("/users",(req, res) => {
+//     var user1 = {firstName: "Anthony", lastName: "Don"};
+//     var user2 = {firstName: "Mario", lastName: "Kim"}
+//     res.json([user1, user2])
+// })
 
 //localhost:3003
-app.listen(8080, () => {
+app.listen(3003, () => {
     console.log('Server running...')
 })
